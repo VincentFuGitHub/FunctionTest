@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">HttpUnit</string>
+
+    <!--vincent add-->
+    <string name="http_bt">Http</string>
+    <string name="https_bt">Https</string>
+    <string name="internet_addr">internet address or ip</string>
+
+
+</resources>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:contentDescription="@null"
+        android:id="@+id/iv_title"
+        android:src="@mipmap/http"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:gravity="left|center"
+        android:layout_gravity="center"
+        android:hint="@string/internet_addr"
+        android:id="@+id/ev_input_host_addr"
+        android:maxLines="2"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="60dp">
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="90dp"
+            android:id="@+id/bt_http"
+            android:text="@string/http_bt"/>
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="90dp"
+            android:layout_alignParentEnd="true"
+            android:id="@id/bt_https"
+            android:text="@string/https_bt"/>
+
+    </RelativeLayout>
+
+    <ListView
+        android:layout_marginTop="60dp"
+        android:id="@+id/lv_res"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+    </ListView>
+
+</LinearLayout>
