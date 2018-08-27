@@ -1,13 +1,11 @@
 package com.unitfunction.test;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 
 import com.unitfunction.R;
-import com.unitfunction.common.BaseActivityForFragment;
+import com.unitfunction.common.base.BaseActivityForFragment;
 import com.unitfunction.subfunction.httpclient.HttpClientFragment;
 import com.unitfunction.subfunction.httpclient.internal.HttpClientCallBack;
-import com.unitfunction.subfunction.httpclient.internal.HttpClientContract;
 import com.unitfunction.subfunction.httpclient.internal.HttpClientCusData;
 import com.unitfunction.test.internal.TestSubFunctionContract;
 import com.unitfunction.test.internal.TestSubFunctionPresenter;

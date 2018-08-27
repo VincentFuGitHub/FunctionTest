@@ -7,16 +7,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.unitfunction.R;
-import com.unitfunction.common.BaseFragment;
+import com.unitfunction.common.base.BaseFragment;
 import com.unitfunction.subfunction.httpclient.internal.HttpClientCallBack;
 import com.unitfunction.subfunction.httpclient.internal.HttpClientContract;
 import com.unitfunction.subfunction.httpclient.internal.HttpClientCusData;
 import com.unitfunction.subfunction.httpclient.internal.HttpClientPresent;
-
-import org.w3c.dom.Text;
 
 import butterknife.BindView;
 
@@ -69,14 +66,14 @@ public class HttpClientFragment extends BaseFragment implements HttpClientContra
         btHttp.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                httpClientCallBack.httpCallBack();
+                httpClientCallBack.httpCallBack(HttpClientFragment.this.getContext());
             }
         });
 
         btHttps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                httpClientCallBack.httpsCallBack();
+                httpClientCallBack.httpsCallBack(HttpClientFragment.this.getContext());
             }
         });
     }
