@@ -2,18 +2,27 @@ package com.unitfunction.subfunction.httpclient;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.unitfunction.R;
 import com.unitfunction.common.base.BaseFragment;
+import com.unitfunction.common.base.RecyclerViewAdapter;
 import com.unitfunction.subfunction.httpclient.internal.HttpClientCallBack;
 import com.unitfunction.subfunction.httpclient.internal.HttpClientContract;
 import com.unitfunction.subfunction.httpclient.internal.HttpClientCusData;
 import com.unitfunction.subfunction.httpclient.internal.HttpClientPresent;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 
@@ -24,11 +33,7 @@ import butterknife.BindView;
 public class HttpClientFragment extends BaseFragment implements HttpClientContract.IView{
 
     private static final String TITLE_TAG = "HTTP_CLIENT_TITLE_TAG";
-    private static final String CUSTOMER_TAG = "HTTP_CLIETN_CUS_DATA_TAG";
-
-    private String title;
-    private HttpClientCusData httpClientCusData;
-    private HttpClientCallBack httpClientCallBack;
+    private static final String CUSTOMER_TAG = "HTTP_CLIENT_CUS_DATA_TAG";
 
     @BindView(R.id.ev_input_host_addr)
     EditText evHostAddr;
@@ -36,11 +41,22 @@ public class HttpClientFragment extends BaseFragment implements HttpClientContra
     Button btHttp;
     @BindView(R.id.bt_https)
     Button btHttps;
-    @BindView(R.id.lv_res)
-    ListView lvRes;
+   /* @BindView(R.id.lv_res)
+    ListView lvRes;*/
+    @BindView(R.id.rv_res)
+    RecyclerView rvRes;
+
+    private String title;
+    private HttpClientCusData httpClientCusData;
+    private HttpClientCallBack httpClientCallBack;
+    private Handler handler = new Handler(Looper.getMainLooper());
+
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private RecyclerViewAdapter recyclerViewAdapter;
 
     private HttpClientContract.IPresent present;
-    private String[] strArray = {"default1", "default2"};
+    private List<String> strArray = new ArrayList<>();
 
     @Override
     protected int getLayoutId() {
@@ -61,31 +77,55 @@ public class HttpClientFragment extends BaseFragment implements HttpClientContra
 
     @Override
     protected void initView(View view) {
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.text_listview, strArray);
-        lvRes.setAdapter(adapter);
+        /*ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.text_listview, strArray);
+        lvRes.setAdapter(adapter);*/
+        initRecyclerView();
         btHttp.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                httpClientCallBack.httpCallBack(HttpClientFragment.this.getContext());
+//                httpClientCallBack.httpCallBack(HttpClientFragment.this.getContext());
+                present.httpCallBack(HttpClientFragment.this.getContext());
             }
         });
 
         btHttps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                httpClientCallBack.httpsCallBack(HttpClientFragment.this.getContext());
+//                httpClientCallBack.httpsCallBack(HttpClientFragment.this.getContext());
+                present.httpsCallBack(HttpClientFragment.this.getContext());
             }
         });
     }
 
     @Override
     protected void initPresent() {
-        present = new HttpClientPresent(this);
+        present = new HttpClientPresent(this, httpClientCallBack);
         present.startLogic();
+    }
+
+    @Override
+    public void updateRecyclerView(final List<String> list){
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                recyclerViewAdapter.updateViewAdapter(list);
+            }
+        });
     }
 
     public interface OnHttpClientCallBack {
         HttpClientCallBack getHttpClientCallBack();
+    }
+
+
+    private void initRecyclerView(){
+        rvRes.setHasFixedSize(true);
+        mLayoutManager = new LinearLayoutManager(this.getActivity());
+        rvRes.setLayoutManager(mLayoutManager);
+        strArray.add("Wait for update");
+        recyclerViewAdapter = new RecyclerViewAdapter(strArray);
+        mAdapter = recyclerViewAdapter;
+        rvRes.setAdapter(mAdapter);
     }
 
     //normal create fragment, save data in serial

@@ -7,6 +7,9 @@ import android.content.Context;
  */
 
 public interface HttpClientCallBack {
-    void httpCallBack(Context context);
-    void httpsCallBack(Context context);
+/*    void httpCallBack(Context context);
+    void httpsCallBack(Context context);*/
+    void onSuccess();
+    void onCancel();
+    void onTimeout();
 }
