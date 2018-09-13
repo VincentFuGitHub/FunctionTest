@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.unitfunction.R;
-import com.unitfunction.subfunction.httpclient.HttpClientFragment;
 
 import java.util.List;
 

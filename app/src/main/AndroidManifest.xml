@@ -1,4 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.unitfunction">
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -14,16 +15,21 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+        android:name=".UnitFunction">
 
         <activity
-            android:name="com.unitfunction.test.TestSubFunctionActivity"
-            android:theme="@style/AppTheme">
+            android:name="com.unitfunction.home.FunctionListActivity"
+            android:theme="@style/FullScreen">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.unitfunction.funactivity.http.HttpActivity" />
 
         <!--<activity android:name=".common.CommonFragmentOnActivity"/>-->
 

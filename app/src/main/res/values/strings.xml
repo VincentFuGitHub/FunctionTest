@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HttpUnit</string>
+    <string name="app_name">FunctionTest</string>
 
     <!--vincent add-->
     <string name="http_bt">Http</string>

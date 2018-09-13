@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'org.greenrobot.greendao' // apply plugin
+
 android {
     compileSdkVersion 26
     defaultConfig {
@@ -22,6 +24,12 @@ android {
     }
 }
 
+greendao {
+    schemaVersion 1
+    daoPackage 'com.unitfunction.common.database.daogenerate'
+    targetGenDir 'src/main/java'
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
@@ -31,6 +39,10 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     //------------------add by vincent----------------
+
+    //Resolved versions for app (26.1.0) and test app (27.1.1) differ. add to solve this
+    compile 'com.android.support:support-annotations:27.1.1'
+
     // butterknife
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
@@ -41,4 +53,13 @@ dependencies {
 
     // internet
     compile 'com.squareup.okhttp3:okhttp:3.9.1'
+
+    // gson
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    //recycler view
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+
+    //green dao
+    implementation 'org.greenrobot:greendao:3.2.2' // add library
 }
