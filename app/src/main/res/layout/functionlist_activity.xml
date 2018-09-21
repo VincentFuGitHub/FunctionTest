@@ -7,12 +7,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/test_http"
-        android:text="Test Http"/>
+        android:text="Test Http"
+        android:textAllCaps="false"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/test_db"
-        android:text="Test Database"/>
+        android:text="Test Database"
+        android:textAllCaps="false"/>
 
 </LinearLayout>

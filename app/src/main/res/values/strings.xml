@@ -6,5 +6,13 @@
     <string name="https_bt">Https</string>
     <string name="internet_addr">internet address or ip</string>
 
+    <string name="test_http">Test Http</string>
+    <string name="test_db">Test Db</string>
+
+    <string name="create_db">Create Db</string>
+    <string name="add_db">Add Db</string>
+    <string name="update_db">Update Db</string>
+    <string name="delete_db">Delete Db</string>
+    <string name="query_db">Query Db</string>
 
 </resources>

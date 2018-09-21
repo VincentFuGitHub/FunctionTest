@@ -30,6 +30,8 @@
 
         <activity
             android:name="com.unitfunction.funactivity.http.HttpActivity" />
+        <activity
+            android:name="com.unitfunction.funactivity.dbunit.DbunitActivity" />
 
         <!--<activity android:name=".common.CommonFragmentOnActivity"/>-->
 
