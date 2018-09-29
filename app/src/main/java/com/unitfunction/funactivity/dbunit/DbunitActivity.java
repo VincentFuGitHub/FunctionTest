@@ -20,9 +20,11 @@ import io.reactivex.schedulers.Schedulers;
  * Created by Vincent on 2018/9/14.
  */
 
-public class DbunitActivity extends BaseActivityForFragment implements DbunitContract.IView{
+public class DbunitActivity extends BaseActivityForFragment implements DbunitContract.IView,
+        DbunitFragment.OnDbFragCallBack {
 
     DbunitContract.IPresenter iPresenter;
+    DbFragCallBack dbFragCallBack;
 
     @Override
     protected int getContentViewId() {
@@ -54,8 +56,13 @@ public class DbunitActivity extends BaseActivityForFragment implements DbunitCon
     }
 
     @Override
-    void testDb(DbFragCallBack dbFragCallBack){
-        startFragment();
+    public void testDb(DbFragCallBack dbFragCallBack) {
+        this.dbFragCallBack = dbFragCallBack;
+        startFragment(DbunitFragment.newInstance(this), false);
     }
 
+    @Override
+    public DbFragCallBack getDbFragCallBack() {
+        return dbFragCallBack;
+    }
 }

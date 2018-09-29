@@ -11,6 +11,6 @@ public interface DbunitFragContract {
     }
 
     public interface IPresenter{
-
+        void startLogic();
     }
 }

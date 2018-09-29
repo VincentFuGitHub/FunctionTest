@@ -8,7 +8,7 @@ import com.unitfunction.funfrag.dbunitfragment.DbFragCallBack;
 
 public interface DbunitContract {
     public interface IView{
-//        void testDb(DbFragCallBack dbFragCallBack);
+        void testDb(DbFragCallBack dbFragCallBack);
     }
 
     public interface IPresenter{
