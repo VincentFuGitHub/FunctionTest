@@ -57,12 +57,13 @@ public abstract class BaseActivityForFragment extends AppCompatActivity{
                     .replace(getContentViewId(), fragment, tagName)
                     .addToBackStack(tagName)
                     .commit();
-        }
-        else{
+        }else{
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(getContentViewId(), fragment, tagName)
-                    .addToBackStack(tagName)
+//                    .addToBackStack(tagName)  //first fragment should not backstack, Since this allows
+                                                // back navigation and prior to this fragment the empty
+                                                // activity layout will be displayed.
                     .commit();
             firstFragment = false;
         }
@@ -88,5 +89,10 @@ public abstract class BaseActivityForFragment extends AppCompatActivity{
         Intent intent = new Intent(BaseActivityForFragment.this, tarActivity);
         intent.putExtras(bundle);
         startActivityForResult(intent, 1000);
+    }
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
     }
 }

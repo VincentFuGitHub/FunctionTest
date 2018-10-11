@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import com.unitfunction.R;
 import com.unitfunction.common.base.BaseActivityForFragment;
+import com.unitfunction.common.database.DbOperation;
 import com.unitfunction.funfrag.dbunitfragment.DbFragCallBack;
 import com.unitfunction.funfrag.dbunitfragment.DbunitFragment;
 
@@ -65,4 +66,5 @@ public class DbunitActivity extends BaseActivityForFragment implements DbunitCon
     public DbFragCallBack getDbFragCallBack() {
         return dbFragCallBack;
     }
+
 }

@@ -5,14 +5,15 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:id="@+id/test_http"
         android:text="Test Http"
         android:textAllCaps="false"/>
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="15dp"
         android:id="@+id/test_db"
         android:text="Test Database"
         android:textAllCaps="false"/>

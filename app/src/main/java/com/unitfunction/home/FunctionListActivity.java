@@ -13,6 +13,7 @@ import android.widget.Button;
 import com.unitfunction.R;
 import com.unitfunction.common.base.BaseActivityForFragment;
 import com.unitfunction.common.log.LogUtil;
+import com.unitfunction.funactivity.dbunit.DbunitActivity;
 import com.unitfunction.funactivity.http.HttpActivity;
 
 import butterknife.BindView;
@@ -79,6 +80,8 @@ public class FunctionListActivity extends AppCompatActivity{
     @OnClick(R.id.test_db)
     void btnTestDb(){
         LogUtil.d(Tag, "Start Db Activity", DEBUG);
+        Intent intent = new Intent(FunctionListActivity.this, DbunitActivity.class);
+        startActivity(intent);
     }
 
 }

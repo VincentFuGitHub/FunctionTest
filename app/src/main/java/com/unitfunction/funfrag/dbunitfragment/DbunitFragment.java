@@ -8,8 +8,6 @@ import android.widget.Button;
 import com.unitfunction.R;
 import com.unitfunction.common.base.BaseFragment;
 import com.unitfunction.common.log.LogUtil;
-import com.unitfunction.funactivity.dbunit.DbunitContract;
-import com.unitfunction.funactivity.dbunit.DbunitPresenter;
 
 import butterknife.BindView;
 

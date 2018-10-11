@@ -56,4 +56,12 @@ public class DataEntity {
        this.date = date;
    }
 
+   @Override
+   public String toString(){
+        return "id:" + id + "\n"
+                + "text:" + text + "\n"
+                + "comment:" + comment + "\n"
+                + "date:" + date.toString() + "\n";
+   }
+
 }
